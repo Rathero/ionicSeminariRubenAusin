@@ -21,7 +21,7 @@ angular.module('starter.services', [])
     name: 'Washington DC',
   }, {
     id: 5,
-    name: 'Londres',
+    name: 'London',
   }, {
     id: 6,
     name: 'Berlin',
@@ -50,6 +50,9 @@ angular.module('starter.services', [])
         }
       }
       return null;
+    },
+    add: function(city){
+      cities.push(city);
     }
   };
 });

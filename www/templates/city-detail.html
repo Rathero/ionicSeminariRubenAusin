@@ -4,11 +4,44 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
+
+<style>
+  .angular-google-map-container {
+  position: absolute;
+  top: 220px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  }
+</style>
 <ion-view view-title="{{city.name}}">
   <ion-content class="padding">
-    <p>
-      {{city.name}}
-    </p>
-    <p>{{city.details.coord.lat}}</p>
+    <div class="row">
+      <div class="col col-50">
+        <p>Actual Temp: {{city.details.main.temp}} °C</p>
+        <p>Max Temp: {{city.details.main.temp_max}} °C</p>
+        <p>Min Temp: {{city.details.main.temp_min}} °C</p>
+        <p>Humidity: {{city.details.main.humidity}} %</p>
+        <p>Lat: {{city.details.coord.lat}}</p>
+        <p>Lon: {{city.details.coord.lon}}</p>
+        <p>Wind speed: {{city.details.wind.speed}} Km/h</p>
+      </div>
+      <div class="col col-center">
+
+        <p>Weather: {{city.details.weather[0].description}}  </p>
+        <img ng-src="http://openweathermap.org/img/w/{{city.details.weather[0].icon}}.png"/>
+      </div>
+    </div>
+    <div style="height:350px">
+  <google-map center="map.center"
+              zoom="map.zoom"
+              draggable="false"
+              options="map.options"
+              control="map.control">
+    <marker coords="marker.coords" options="marker.options" idkey="marker.id" ></marker>
+  </google-map>
+    </div>
   </ion-content>
 </ion-view>
+
+<script src="js/map.js?v=1.0"></script>
