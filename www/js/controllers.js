@@ -1,5 +1,5 @@
  angular.module('starter.controllers', [])
-.controller('DashCtrl', function($scope) {})
+.controller('AboutCtrl', function($scope) {})
 
 .controller('CitiesCtrl', function($scope, Cities, $http) {
   $scope.cities = Cities.all();
